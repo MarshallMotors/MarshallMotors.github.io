@@ -199,6 +199,7 @@
 
             .schedule-button {
                 bottom: 5%;
+                padding: 10px 10px;
             }
         }
 
@@ -214,16 +215,41 @@
 
             .schedule-button {
                 bottom: 5%;
+                padding: 10px 10px;
             }
 
             .header-text-container {
-            position: absolute;
-            top: 30%;
-            left: 50%;
-            transform: translate(-50%, -100%);
-            text-align: center;
-            width: 100%;
+                position: absolute;
+                top: 30%;
+                left: 50%;
+                transform: translate(-50%, -100%);
+                text-align: center;
+                width: 100%;
+            }
         }
+
+        /* Adjust font size for smaller screens */
+        @media screen and (max-width: 360px) {
+            .header-text {
+                font-size: 24px;
+            }
+
+            .header-text-container {
+                width: 100%;
+            }
+
+            .schedule-button {
+                bottom: 5%;
+            }
+
+            .header-text-container {
+                position: absolute;
+                top: 40%;
+                left: 50%;
+                transform: translate(-50%, -100%);
+                text-align: center;
+                width: 100%;
+            }
         }
 
 
