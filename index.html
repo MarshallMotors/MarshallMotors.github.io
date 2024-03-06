@@ -12,9 +12,7 @@
     <meta property="og:image" content="https://marshallmotorscle.com/logo.png">
     <meta property="og:url" content="https://marshallmotorscle.com">
     <meta property="og:type" content="website">
-    <link rel="icon" href="logo.png" type="image/png">
-
-    <title>Marshall Motors</title>
+    <title>Marshall Motors - Auto Repair Services</title>
     <style>
         <img src="logo.png" alt="Logo" class="logo" >
         
@@ -687,8 +685,8 @@
             }
 
             .mechanic-video {
-                width: 100%;
-                height: 100%; /* Adjusted to maintain video aspect ratio */
+                width: 50%;
+                height: auto; /* Adjusted to maintain video aspect ratio */
                 max-height: 600px; /* Adjusted max height for better fit on smaller screens */
                 border-radius: 20px;
                 box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
@@ -816,7 +814,7 @@
             <div class="service-item">
                 <img src="interior.jpg" alt="Interior Detailing Services">
                 <h3>Interior Detailing Services</h3>
-                <p>Transform your ride from mundane to magnificent with our magic touch, offering bespoke interior detailing services that redefine automotive luxury.</p>
+                <p>Transform your ride from mundane to magnificent with our magic touch, offering bespoke interior detailing services that redefine automotive luxury!</p>
 
             </div>
 
@@ -870,10 +868,8 @@
                 </div>
                 <div class="image-container">
                     <div class="video-container">
-                        <video id="mechanicVideo" loop muted class="mechanic-video" autoplay>
-                            <source type="image/gif" src="sparky.gif">
-                        </video>
-                        <button id="playButton" onclick="playVideo()">Play Video</button>
+                        <!-- Change the video tag to display the GIF -->
+                        <img src="sparky.gif" alt="Mechanic Alex">
                     </div>
                 </div>                
                 <div class="paragraph-box">
@@ -888,28 +884,6 @@
             </div>
         </div>
     </section>
-
-    <script>
-        function playVideo() {
-            var video = document.getElementById('mechanicVideo');
-            var playButton = document.getElementById('playButton');
-
-            // Add an event listener for the "loadedmetadata" event
-            video.addEventListener('loadedmetadata', function() {
-                video.play();
-                video.setAttribute('controls', 'controls'); // Show video controls
-                playButton.style.display = 'none'; // Hide the play button
-            });
-
-            // If the "loadedmetadata" event has already fired (video is already loaded), play the video immediately
-            if (video.readyState >= 2) {
-                video.play();
-                video.setAttribute('controls', 'controls'); // Show video controls
-                playButton.style.display = 'none'; // Hide the play button
-            }
-        }
-
-    </script>
     
 
     <section class="how-it-works-section">
