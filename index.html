@@ -697,9 +697,35 @@
                 text-shadow: 2px 2px 2px black;
             }
 
+            @media screen and (max-width: 769px) {
+
+                #playButton {
+                    background-color: #cc0000;
+                    color: #fff;
+                    padding: 15px 30px;
+                    border: none;
+                    cursor: pointer;
+                    font-weight: bold;
+                    text-transform: uppercase;
+                    letter-spacing: 2px;
+                    text-shadow: 2px 2px 2px black;
+                    border-radius: 5px;
+                    transition: background-color 0.3s ease;
+                    z-index: 2; /* Ensure the button is above the video */
+                }
+
+                #playButton:hover {
+                    background-color: #990000; /* Darker shade on hover */
+                }
+            }
+
             @media screen and (min-width: 769px) {
                 .section-content-container {
                     flex-direction: row;
+                }
+
+                #playButton {
+                    display: none; /* Hide the play button on larger screens */
                 }
 
                 .image-container {
@@ -714,32 +740,10 @@
                 }
             }
 
-            @media screen and (min-width: 769px) {
-                .section-content-container {
-                    flex-direction: column; /* Change flex-direction to column for better stacking on larger screens */
-                    align-items: center; /* Center content horizontally on larger screens */
-                }
-
-                .image-container {
-                    margin-top: 20px; /* Adjust margin for better spacing on larger screens */
-                    margin-right: 0; /* Remove right margin on larger screens */
-                }
-
-                .mechanic-video {
-                    max-width: 100%; /* Adjust max-width for better fit on larger screens */
-                    height: auto; /* Reset height for better aspect ratio on larger screens */
-                }
-            }
-
-
     </style>
 </head>
 
-
-
 <body>
-
-
 
     <nav class="main-nav">
         <img src="logo.png" alt="Logo" class="logo">
@@ -829,8 +833,6 @@
                 <h3>Brake Service</h3>
                 <p>Expert brake inspections, repairs, and replacements for optimal stopping power and safety.</p>
             </div>
-
-
     </section>
 
 
@@ -857,10 +859,13 @@
                     <h2>MEET THE MECHANIC</h2>
                 </div>
                 <div class="image-container">
-                    <video autoplay loop muted class="mechanic-video">
-                        <source type="video/mp4" src="sparky2.mp4">
-                    </video>
-                </div>
+                    <div class="video-container">
+                        <video id="mechanicVideo" loop muted class="mechanic-video" autoplay>
+                            <source type="video/mp4" src="sparky2.mp4">
+                        </video>
+                        <button id="playButton" onclick="playVideo()">Play Video</button>
+                    </div>
+                </div>                
                 <div class="paragraph-box">
                     <h2>Introducing Alex:</h2>
                     <p>
@@ -874,6 +879,27 @@
         </div>
     </section>
 
+    <script>
+        function playVideo() {
+            var video = document.getElementById('mechanicVideo');
+            var playButton = document.getElementById('playButton');
+
+            // Add an event listener for the "loadedmetadata" event
+            video.addEventListener('loadedmetadata', function() {
+                video.play();
+                video.setAttribute('controls', 'controls'); // Show video controls
+                playButton.style.display = 'none'; // Hide the play button
+            });
+
+            // If the "loadedmetadata" event has already fired (video is already loaded), play the video immediately
+            if (video.readyState >= 2) {
+                video.play();
+                video.setAttribute('controls', 'controls'); // Show video controls
+                playButton.style.display = 'none'; // Hide the play button
+            }
+        }
+
+    </script>
     
 
     <section class="how-it-works-section">
@@ -984,5 +1010,4 @@
 </body>
 
 </html>
-
 
