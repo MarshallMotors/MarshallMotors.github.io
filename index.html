@@ -649,12 +649,8 @@
                 padding: 20px 20px;
                 text-align: center;
             }
-            
-            .meet-the-mechanic-section .text-content {
-                text-align: center; /* Adjusted for center alignment on smaller screens */
-            }
-            
-            .meet-the-mechanic-section .paragraph-box {
+
+            .meet-the-mechanic-section .text-content .paragraph-box {
                 background-color: #333;
                 color: #fff;
                 padding-top: 5px;
@@ -666,7 +662,6 @@
                 margin-top: 20px;
                 font-size: 20px;
             }
-            
 
             .section-content-container {
                 display: flex;
@@ -735,38 +730,6 @@
                     height: auto; /* Reset height for better aspect ratio on larger screens */
                 }
             }
-
-                #playButton {
-                    position: absolute;
-                    top: 50%;
-                    left: 50%;
-                    transform: translate(-50%, -50%);
-                    background-color: rgba(0, 0, 0, 0.7);
-                    color: #fff;
-                    border: none;
-                    padding: 10px 20px;
-                    font-size: 16px;
-                    cursor: pointer;
-                    border-radius: 5px;
-                    display: none; /* Initially hide the button */
-                }
-
-                .mechanic-video:not(.playing) {
-                    display: none;
-                }
-
-                        @media screen and (max-width: 768px) {
-                            #playButton {
-                                display: block; /* Show the button on smaller screens */
-                            }
-                
-                            .mechanic-video.playing {
-                                display: block; /* Show the video when playing on smaller screens */
-                            }
-                        }
-
-
-
 
 
     </style>
@@ -887,32 +850,29 @@
         </div>
     </section>
 
-<section id="about" class="meet-the-mechanic-section">
-    <div class="section-content-container">
-        <div class="text-content">
-            <div class="section-header">
-                <h2>MEET THE MECHANIC</h2>
-            </div>
-            <div class="image-container">
-                <div class="video-container">
-                    <video loop muted class="mechanic-video" id="mechanicVideo">
+    <section id="about" class="meet-the-mechanic-section">
+        <div class="section-content-container">
+            <div class="text-content">
+                <div class="section-header">
+                    <h2>MEET THE MECHANIC</h2>
+                </div>
+                <div class="image-container">
+                    <video autoplay loop muted class="mechanic-video">
                         <source type="video/mp4" src="sparky2.mp4">
                     </video>
-                    <button id="playButton" onclick="toggleVideo()">Play Video</button>
+                </div>
+                <div class="paragraph-box">
+                    <h2>Introducing Alex:</h2>
+                    <p>
+                        An experienced auto technician with 8 years in the field. With skills in diagnostics,
+                        repairs, and maintenance, Alex ensures top-quality service and customer satisfaction. Known for precision
+                        and commitment, Alex excels in handling various vehicle needs, from complex engine repairs to routine maintenance
+                        tasks. Count on Alex, your reliable and innovative mechanic for all your automotive care and detailing needs.
+                    </p>
                 </div>
             </div>
-            <div class="paragraph-box">
-                <h2>Introducing Alex:</h2>
-                <p>
-                    An experienced auto technician with 8 years in the field. With skills in diagnostics,
-                    repairs, and maintenance, Alex ensures top-quality service and customer satisfaction. Known for precision
-                    and commitment, Alex excels in handling various vehicle needs, from complex engine repairs to routine maintenance
-                    tasks. Count on Alex, your reliable and innovative mechanic for all your automotive care and detailing needs.
-                </p>
-            </div>
         </div>
-    </div>
-</section>
+    </section>
 
     
 
