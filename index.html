@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Marshall Motors</title>
+    <style>
+        <img src="logo.png" alt="Logo" class="logo" >
+        <img src="repair.png" alt="Choose Your Service" >
+        <img src="pricing.png" alt="Receive My Breakdown" >
+        <img src="calendar.png" alt="Pick A Date & A Time" >
+        <img src="alex.jfif" alt="Mechanic Alex" class="mechanic-image" >
+        <img src="fb-logo.png" alt="Facebook" >
+        <img src="insta-logo.png" alt="Instagram" >
+
+        @font-face {
+            font-family: 'Avenir';
+            src: url('fonts/Avenir.ttc');
+        }
+
+        body {
+            font-family: 'Avenir', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #333;
+            color: #fff;
+        }
+
+        .main-header {
+            background-color: #222;
+            color: #fff;
+            text-align: center;
+            padding: 1em 5%;
+            margin-bottom: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo {
+            width: 150px; /* Adjust the width as needed */
+            height: auto;
+            margin-right: 10px; /* Adjust the margin as needed */
+        }
+
+        .main-nav {
+            background-color: #222;
+            color: #fff;
+            text-align: center;
+            padding: 1em 5%;
+        }
+
+        .menu-button {
+            display: none; /* Hide the menu button on larger displays */
+        }
+
+            .main-nav ul {
+                list-style-type: none;
+                margin: 10px;
+                padding: 0;
+            }
+
+            .main-nav li {
+                display: inline-block;
+                margin-right: 20px;
+            }
+
+            .main-nav a {
+                text-decoration: none;
+                color: #fff;
+                font-weight: bold;
+                font-size: 16px;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+            }
+
+                .main-nav a:hover {
+                    border-bottom: 2px solid #cc0000; /* Red underline on hover */
+                }
+
+        @media screen and (max-width: 768px) {
+            .main-nav {
+                padding: 1em 2%;
+                position: relative; /* Add position relative to allow absolute positioning of the menu button */
+            }
+
+                .main-nav ul {
+                    list-style-type: none;
+                    margin: 0;
+                    padding: 0;
+                    display: none; /* Hide the navigation links by default */
+                    position: absolute;
+                    top: 100%; /* Position the menu below the logo */
+                    left: 0;
+                    width: 100%;
+                    background-color: #222; /* Match the background color of the navigation bar */
+                    z-index: 1; /* Ensure the menu appears above other content */
+                }
+
+                .main-nav li {
+                    display: block;
+                    margin: 10px 0;
+                }
+
+                .main-nav a {
+                    display: block;
+                    padding: 10px 0;
+                    border-bottom: 1px solid #555; /* Add a border between menu items */
+                }
+
+            .logo {
+                margin-bottom: 10px; /* Adjust margin as needed */
+            }
+
+            .menu-button {
+                display: block;
+                position: absolute;
+                top: 10px;
+                right: 10px; /* Adjust the values as needed */
+                padding: 10px 0;
+                background-color: transparent;
+                color: #fff;
+                border: none;
+                cursor: pointer;
+                font-weight: bold;
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                text-shadow: 2px 2px 2px black;
+                transition: background-color 0.3s ease;
+            }
+        }
+
+        /* Add a hover effect for the menu button */
+        .menu-button:hover {
+            background-color: #990000; /* Darker shade on hover */
+        }
+
+
+
+        .header-image {
+            width: 100%;
+            height: 30vh;
+            background-image: url('pic1.jpg');
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            position: relative;
+        }
+
+        .schedule-button {
+            position: absolute;
+            bottom: 5%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #cc0000;
+            color: #fff;
+            padding: 15px 30px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 2px black;
+        }
+
+        .header-text-container {
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -100%);
+            text-align: center;
+            width: 100%;
+        }
+
+        .header-text {
+            font-size: 42px;
+            color: #fff;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 4px 4px 4px black;
+            white-space: normal;
+            margin: 10px 0;
+            line-height: 1.2;
+            border-bottom: 2px solid #cc0000;
+            display: inline-block;
+        }
+
+        /* Adjust font size for smaller screens */
+        @media screen and (max-width: 768px) {
+            .header-text {
+                font-size: 36px;
+            }
+
+            .header-text-container {
+                width: 100%;
+            }
+
+            .schedule-button {
+                bottom: 10%;
+            }
+        }
+
+        /* Adjust font size for smaller screens */
+        @media screen and (max-width: 450px) {
+            .header-text {
+                font-size: 28px;
+            }
+
+            .header-text-container {
+                width: 100%;
+            }
+
+            .schedule-button {
+                bottom: 10%;
+            }
+
+            .header-text-container {
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -100%);
+            text-align: center;
+            width: 100%;
+        }
+        }
+
+
+        .header-details {
+            display: block;
+            font-size: 40%;
+            color: #fff;
+            text-align: left;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            text-shadow: 2px 2px 2px black;
+            overflow: hidden;
+            white-space: nowrap;
+            padding: 5% 20px;
+        }
+
+        .announcement-banner {
+            background: #990000;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .services-section {
+            background-color: #222;
+            color: #fff;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .services-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-top: 30px;
+        }
+
+        .service-item {
+            flex: 1 1 calc(30% - 20px);
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 15px;
+        }
+
+        .service-item img {
+            width: 100%;
+            max-height: 210px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+            .service-item h3 {
+                color: #cc0000;
+                margin-bottom: 10px;
+            }
+
+            .service-item p {
+                color: floralwhite;
+                font-size: 16px;
+                line-height: 1.5;
+                margin: 0;
+            }
+
+        .services-section .section-header {
+            margin-bottom: 40px;
+        }
+
+        .services-section h2 {
+            color: #cc0000;
+            margin-bottom: 20px;
+            letter-spacing: 4px;
+        }
+
+        .services-section p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        @media screen and (max-width: 768px) {
+            .service-item {
+                flex: 1 1 calc(100% - 20px); /* Adjust the width for smaller screens */
+            }
+        }
+
+        @media screen and (min-width: 1920px) {
+            .service-item img {
+            width: 100%;
+            max-height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        }
+
+
+        .how-it-works-section {
+            padding: 50px;
+            text-align: center;
+            background-color: #333;
+        }
+
+            .how-it-works-section h2 {
+                color: #cc0000;
+                margin-bottom: 10px;
+                font-size: 36px;
+            }
+
+            .how-it-works-section h3 {
+                font-size: 28px;
+                font-weight: bold;
+                margin-bottom: 30px;
+            }
+
+            .red-border {
+            border-bottom: 2px solid #cc0000;
+            margin-bottom: 40px; /* Adjust as needed */
+            padding-bottom: 10px; /* Adjust as needed */
+            }
+
+            .how-it-works-section p {
+                font-size: 18px;
+                margin-bottom: 30px;
+            }
+
+        .process-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            border-bottom: 2px solid #cc0000;
+        }
+
+        .process-item {
+            text-align: center;
+            max-width: 300px; /* Adjust the maximum width as needed */
+        }
+
+            .process-item img {
+                width: 50%; /* Ensure the image takes the full width of its container */
+                max-height: 150px; /* Adjust the maximum height as needed */
+                object-fit: cover; /* Maintain aspect ratio and cover the container */
+                margin-bottom: 15px;
+                filter: brightness(0) invert(1) sepia(1) hue-rotate(-20deg);
+            }
+
+            .process-item h3 {
+                color: #f9f9f9;
+                margin-bottom: 10px;
+            }
+
+            .process-item p {
+                color: floralwhite;
+                font-size: 16px;
+                line-height: 1.5;
+                margin: ;
+            }
+
+
+        .convenience-section {
+            background-image: url('Scroll.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .convenience-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7); /* Adjusted background color for overlay */
+            z-index: 1; /* Ensures the overlay is above the background image */
+        }
+
+        .convenience-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            width: 80%;
+            padding: 20px;
+            z-index: 2;
+            overflow-y: auto; /* Add scroll for smaller screens */
+            max-height: 70%; /* Set maximum height for scrollable container */
+        }
+
+        .convenience-section h2,
+        .convenience-section p {
+            color: #fff; /* Set text color to white */
+        }
+
+        .convenience-section h2 {
+            font-size: 48px; /* Increased font size for emphasis */
+            margin-bottom: 20px;
+            letter-spacing: 4px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Added text shadow for better visibility */
+        }
+
+        .convenience-section p {
+            font-size: 20px; /* Increased font size for emphasis */
+            line-height: 1.8;
+            margin: 0;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Added text shadow for better visibility */
+        }
+
+        .contact-button {
+            background-color: #cc0000;
+            color: #fff;
+            padding: 15px 30px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 2px black;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+            .contact-button:hover {
+                background-color: #990000; /* Darker shade on hover */
+            }
+
+
+
+        .contact-section {
+            background-color: #333;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .contact-form-container {
+            max-width: 80%;
+            margin: 0 auto;
+            background-color: #444;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+
+            .contact-form-container label {
+                display: block;
+                font-size: 18px;
+                color: #fff;
+                margin-bottom: 10px;
+            }
+
+        .contact-input,
+        .contact-textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            resize: vertical;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        .contact-submit-button {
+            background-color: #cc0000;
+            color: #fff;
+            padding: 15px 30px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 2px black;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+            .contact-submit-button:hover {
+                background-color: #990000; /* Darker shade on hover */
+            }
+
+
+
+        @media screen and (max-width: 768px) {
+            .contact-form-container {
+                max-width: 100%; /* Set the maximum width to 100% for smaller screens */
+                padding: 20px; /* Adjust padding for better spacing on smaller screens */
+            }
+        }
+
+
+
+
+        .faq-section {
+            padding: 40px; /* Increased padding for better spacing */
+            text-align: left; /* Adjusted text alignment to the left */
+            background-color: #333;
+            border-radius: 10px; /* Added border radius for a neat appearance */
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Added a subtle box shadow for depth */
+        }
+
+            .faq-section h2 {
+                color: #cc0000;
+                margin-bottom: 30px; /* Increased margin for better separation */
+                font-size: 24px; /* Adjusted font size for heading */
+            }
+
+        .faq-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .faq-item {
+            margin-bottom: 20px; /* Increased margin for better spacing between items */
+            padding: 15px; /* Added padding for a more defined container */
+            background-color: #444; /* White background for each item */
+            border-radius: 8px; /* Added border radius for a neat appearance */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Added a subtle box shadow for depth */
+            transition: transform 0.3s ease-in-out; /* Added a transition effect on hover */
+        }
+
+            .faq-item:hover {
+                transform: scale(1.02); /* Slightly scale up on hover for a subtle interactive effect */
+            }
+
+
+
+        .main-footer {
+            background-color: #444;
+            color: #fff;
+            padding: 20px 0;
+        }
+
+        .main-footer a {
+            color: #fff; /* Set the desired text color for the links */
+            text-decoration: none; /* Remove the default underline */
+        }
+
+        .main-footer a:hover {
+            border-bottom: 1px solid #cc0000; /* Add a bottom border on hover */
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+
+        .footer-section {
+            max-width: 45%;
+            margin-bottom: 20px;
+        }
+
+        .contact-info h3,
+        .social-media h3 {
+            display: inline-block;
+            border-bottom: 2px solid #cc0000;
+            padding-bottom: 5px;
+        }
+
+        .footer-section p {
+            margin: 10px 0;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 20px;
+            padding-top: 10px;
+            border-top: 1px solid #555;
+        }
+
+            .footer-bottom p {
+                font-size: 14px;
+                opacity: 0.8;
+            }
+
+
+        .social-media a {
+            display: inline-block;
+            margin-right: 15px;
+        }
+
+        .social-media img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            transition: transform 0.3s ease-in-out;
+        }
+
+            .social-media img:hover {
+                transform: scale(1.2); /* Adjust the scaling factor as needed */
+            }
+
+            .meet-the-mechanic-section {
+                background-color: #222;
+                color: #fff;
+                padding: 20px 20px;
+                text-align: center;
+            }
+
+            .meet-the-mechanic-section .text-content .paragraph-box {
+                background-color: #333;
+                color: #fff;
+                padding-top: 5px;
+                padding-right: 8%;
+                padding-left: 8%;
+                padding-bottom: 20px;
+                border-radius: 10px;
+                box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+                margin-top: 20px;
+                font-size: 20px;
+            }
+
+            .section-content-container {
+                display: flex;
+                flex-direction: column; /* Adjusted for better stacking on smaller screens */
+                max-width: 800px;
+                margin: 0 auto;
+                overflow: hidden;
+            }
+
+            .image-container {
+                margin-top: 20px; /* Adjusted for better spacing on smaller screens */
+                max-width: 100%;
+            }
+
+            .mechanic-video {
+                width: 100%;
+                height: 100%; /* Adjusted to maintain video aspect ratio */
+                max-height: 600px; /* Adjusted max height for better fit on smaller screens */
+                border-radius: 20px;
+                box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+                object-fit: cover; /* Added for better control over video sizing */
+            }
+
+            .text-content {
+                text-align: center; /* Adjusted for center alignment on smaller screens */
+            }
+
+            .section-header h2 {
+                color: #cc0000;
+                margin-bottom: 20px;
+                letter-spacing: 4px;
+                font-size: 48px;
+            }
+
+            @media screen and (min-width: 769px) {
+                .section-content-container {
+                    flex-direction: row;
+                }
+
+                .image-container {
+                    margin-top: 50px;
+                    margin-right: 50px;
+                }
+
+                .mechanic-video {
+                    max-height: none; /* Reset max-height for larger screens */
+                    height: 100%; /* Adjusted for full height on larger screens */
+                    max-width: 100%; /* Adjusted for full width on larger screens */
+                }
+            }
+
+            @media screen and (min-width: 769px) {
+                .section-content-container {
+                    flex-direction: column; /* Change flex-direction to column for better stacking on larger screens */
+                    align-items: center; /* Center content horizontally on larger screens */
+                }
+
+                .image-container {
+                    margin-top: 20px; /* Adjust margin for better spacing on larger screens */
+                    margin-right: 0; /* Remove right margin on larger screens */
+                }
+
+                .mechanic-video {
+                    max-width: 100%; /* Adjust max-width for better fit on larger screens */
+                    height: auto; /* Reset height for better aspect ratio on larger screens */
+                }
+            }
+
+
+    </style>
+</head>
+
+
+
+<body>
+
+
+
+    <nav class="main-nav">
+        <img src="logo.png" alt="Logo" class="logo">
+        <button class="menu-button" onclick="toggleMenu()">Menu</button>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#faq">FAQ</a></li>
+        </ul>
+    </nav>
+
+    <script>
+        function toggleMenu() {
+            var menu = document.querySelector('.main-nav ul');
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
+
+
+
+    <div class="header-image">
+        <button class="schedule-button" onclick="scrollToContact()">Schedule an Appointment</button>
+        <div class="header-text-container">
+            <div class="header-text">
+                AUTO-REPAIR SERVICE
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function scrollToContact() {
+            var contactSection = document.getElementById('contact');
+            if (contactSection) {
+                contactSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    </script>
+
+    <div class="announcement-banner">
+        Offering FREE diagnostics. Schedule your appointment now!
+    </div>
+
+
+    <section id="services" class="services-section">
+        <div class="section-header">
+            <h2>Our Services</h2>
+            <p>Discover the wide range of services we offer to keep your vehicle in top condition.</p>
+        </div>
+
+        <div class="services-container">
+            <div class="service-item">
+                <img src="engine.jpg" alt="Engine Service">
+                <h3>Engine Service</h3>
+                <p>Comprehensive engine diagnostics, repairs, and maintenance to keep your engine running smoothly.</p>
+            </div>
+
+            <div class="service-item">
+                <img src="interior.jpg" alt="Interior Detailing Services">
+                <h3>Interior Detailing Services</h3>
+                <p>Transform your ride from mundane to magnificent with our magic touch, offering bespoke interior detailing services that redefine automotive luxury!</p>
+
+            </div>
+
+            <div class="service-item">
+                <img src="dash.jpg" alt="Vehicle Service">
+                <h3>Vehicle Service</h3>
+                <p>Conduct diagnostic assesments - including check engine light analysis and general vehicle inspections.</p>
+            </div>
+
+            <div class="service-item">
+                <img src="tires.jpg" alt="Tire Services">
+                <h3>Tire Services</h3>
+                <p>Tire rotations, balancing, and replacements to ensure even wear and improved vehicle handling.</p>
+            </div>
+
+            <div class="service-item">
+                <img src="battery.jpg" alt="Battery Services">
+                <h3>Battery Services</h3>
+                <p>Battery replacements and charging system checks for reliable starting power.</p>
+            </div>
+
+            <div class="service-item">
+                <img src="brakes.jpg" alt="Brake Service">
+                <h3>Brake Service</h3>
+                <p>Expert brake inspections, repairs, and replacements for optimal stopping power and safety.</p>
+            </div>
+
+
+    </section>
+
+
+    <section class="convenience-section">
+        <div class="convenience-overlay"></div>
+        <div class="convenience-content">
+            <h2>Discover Effortless Auto Maintenance and Service</h2>
+            <p>
+                Welcome to Marshall Motors, where your automotive journey is redefined for ultimate convenience.
+                From scheduling your appointment to driving away in a meticulously serviced vehicle, we offer
+                a seamless experience tailored to your needs. Our comprehensive range of services, from brake
+                repair to suspension maintenance, ensures that every aspect of your vehicle receives expert
+                attention. At Marshall Motors, we prioritize your comfort and satisfaction, making every moment
+                with your vehicle enjoyable and worry-free. Experience the epitome of automotive convenience with
+                us.
+            </p>
+        </div>
+    </section>
+
+    <section id="about" class="meet-the-mechanic-section">
+        <div class="section-content-container">
+            <div class="text-content">
+                <div class="section-header">
+                    <h2>MEET THE MECHANIC</h2>
+                </div>
+                <div class="image-container">
+                    <video autoplay loop muted class="mechanic-video">
+                        <source src="sparky.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="paragraph-box">
+                    <h2>Introducing Alex:</h2>
+                    <p>
+                        An experienced auto technician with 8 years in the field. With skills in diagnostics,
+                        repairs, and maintenance, Alex ensures top-quality service and customer satisfaction. Known for precision
+                        and commitment, Alex excels in handling various vehicle needs, from complex engine repairs to routine maintenance
+                        tasks. Count on Alex, your reliable and innovative mechanic for all your automotive care and detailing needs.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <section class="how-it-works-section">
+        <h2>HOW IT WORKS</h2>
+        <h3>I want to make your life as easy as possible</h3>
+
+        <div class="red-border">
+        </div>
+
+        <div class="process-container">
+            <div class="process-item">
+                <img src="1.svg" alt="Choose Your Service">
+                <h3>Choose Your Service</h3>
+                <p>Select your car, tell me your problems or requirements, and await my response.</p>
+            </div>
+
+            <div class="process-item">
+                <img src="2.svg" alt="Receive My Breakdown">
+                <h3>Receive My Breakdown</h3>
+                <p>Be amazed with my transparent pricing and intuitive analysis.</p>
+            </div>
+
+            <div class="process-item">
+                <img src="3.svg" alt="Pick A Date & A Time">
+                <h3>Pick A Date & A Time</h3>
+                <p>Get your car in proper working condition quickly with premium, quality care.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <h2>Contact Us</h2>
+        <div class="contact-form-container">
+            <form name="gform" id="gform" enctype="text/plain" action="https://docs.google.com/forms/d/e/1FAIpQLSc2lmLRiL6Mhf7SzWuACjLNEwsIzb-t69PfHV0yM7uhZpOP8A/formResponse?" target="hidden_iframe" onsubmit="submitted=true;">
+                <label for="carYear">Car Year:</label>
+                <input class="contact-input" type="text" id="entry.2005620554" name="entry.2005620554" required>
+
+                <label for="carMake">Car Make:</label>
+                <input class="contact-input" type="text" id="entry.1045781291" name="entry.1045781291" required>
+
+                <label for="carModel">Car Model:</label>
+                <input class="contact-input" type="text" id="entry.1065046570" name="entry.1065046570" required>
+
+                <label for="carModel">Car Trim:</label>
+                <input class="contact-input" type="text" id="entry.1166974658" name="entry.1166974658" >
+
+                <label for="name">Name:</label>
+                <input class="contact-input" type="text" id="entry.839337160" name="entry.839337160" required>
+
+                <label for="email">Email:</label>
+                <input class="contact-input" type="email" id="entry.2080651934" name="entry.2080651934" required>
+
+                <label for="phone">Phone Number:</label>
+                <input class="contact-input" type="text" id="entry.2083238350" name="entry.2083238350" required>
+
+                <label for="message">Explain your problem/requirements (Optional):</label>
+                <textarea class="contact-textarea" id="entry.929099463" name="entry.929099463" rows="4"></textarea>
+
+                <button class="contact-submit-button" type="submit">Submit</button>
+            </form>
+
+            <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {}"></iframe>
+
+        </div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script type="text/javascript">var submitted = false;</script>
+    <script type="text/javascript">
+        $('#gform').on('submit', function (e) {
+            $('#gform *').fadeOut(2000);
+            $('#gform').prepend('Your submission has been processed...');
+
+            setTimeout(function () {
+                window.location.href = 'contact-thank-you.html';
+            }, 1000);
+        });
+    </script>
+
+    <section id="faq" class="faq-section">
+        <h2>Frequently Asked Questions</h2>
+        <ul class="faq-list">
+            <li class="faq-item"><strong>Q: How often should I change my car's oil?</strong><br>A: It's generally recommended to change your car's oil every 3,000 to 5,000 miles, or as recommended by your vehicle's manufacturer.</li>
+            <li class="faq-item"><strong>Q: Why is my check engine light on?</strong><br>A: The check engine light can indicate various issues ranging from a loose gas cap to more serious engine problems. It's important to have your vehicle diagnosed by a professional mechanic to determine the exact cause.</li>
+            <li class="faq-item"><strong>Q: When should I replace my brake pads?</strong><br>A: Brake pads typically need to be replaced every 30,000 to 70,000 miles, depending on driving habits and vehicle usage. However, it's essential to have your brakes inspected regularly to ensure optimal performance and safety.</li>
+            <li class="faq-item"><strong>Q: What causes my car to overheat?</strong><br>A: Overheating can be caused by a variety of factors, including low coolant levels, a faulty thermostat, a leaking radiator, or a malfunctioning cooling fan. It's crucial to address overheating issues promptly to prevent serious engine damage.</li>
+            <li class="faq-item"><strong>Q: How often should I rotate my tires?</strong><br>A: Tire rotation is typically recommended every 5,000 to 7,000 miles to ensure even tread wear and extend tire life. Regular tire rotation helps maintain traction, improves fuel efficiency, and enhances overall driving performance.</li>
+        </ul>
+    </section>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-section contact-info">
+                <h3>Contact Information:</h3>
+                <p>Mayfield Heights, Ohio 44124</p>
+                <p><a href="mailto:marshallmotorscle@gmail.com">Email: Marshallmotorscle@gmail.com</a></p>
+                <p><a href="tel:+14402566201">+1(440)-256-6201</a></p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2024 Marshall Motors. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+
+
+</body>
+
+</html>
+
+
