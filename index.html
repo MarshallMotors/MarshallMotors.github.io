@@ -446,11 +446,17 @@
             left: 50%;
             transform: translate(-50%, -50%);
             text-align: center;
-            width: 50%;
+            width: 100%;
             padding: 20px;
             z-index: 2;
             overflow-y: auto; /* Add scroll for smaller screens */
             max-height: 70%; /* Set maximum height for scrollable container */
+        }
+
+        @media screen and (min-width: 768px) {
+            .convenience-content {
+                width: 50%;
+            }
         }
 
         .convenience-section h2,
