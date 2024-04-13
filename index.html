@@ -164,6 +164,29 @@
             text-transform: uppercase;
             letter-spacing: 2px;
             text-shadow: 2px 2px 2px black;
+            z-index: 2; /* Ensure the button is above the header text */
+            transition: transform 0.3s ease;
+        }
+
+        .schedule-button:hover {
+            transform: translateX(-50%) scale(1.05);
+        }
+
+        /* Show the schedule button at the bottom in specific sections */
+        .convenience-section,
+        .meet-the-mechanic-section,
+        .how-it-works-section {
+            position: relative;
+        }
+
+        .convenience-section .schedule-button,
+        .meet-the-mechanic-section .schedule-button,
+        .how-it-works-section .schedule-button {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 100; /* Ensure the button is above other content in these sections */
         }
 
         .header-text-container {
@@ -201,7 +224,7 @@
 
             .schedule-button {
                 bottom: 5%;
-                padding: 10px 10px;
+                padding: 11px 10px;
             }
         }
 
@@ -242,6 +265,7 @@
 
             .schedule-button {
                 bottom: 5%;
+                padding: 10px 10px;
             }
 
             .header-text-container {
@@ -290,6 +314,8 @@
             flex-wrap: wrap;
             justify-content: space-around;
             margin-top: 30px;
+            margin-left: 2%;
+            margin-right: 2%;
         }
 
         .service-item {
@@ -316,6 +342,7 @@
 
             .service-item h3 {
                 color: #cc0000;
+                font-size: 26px;
                 margin-bottom: 10px;
             }
 
@@ -354,7 +381,13 @@
             object-fit: cover;
             border-radius: 8px;
             margin-bottom: 15px;
-        }
+            }
+
+            .services-container{
+            margin-left: 10%;
+            margin-right: 10%;
+            }
+
         }
 
 
@@ -432,7 +465,7 @@
             background-image: url('Scroll.jpg');
             background-size: cover;
             background-position: center;
-            height: 80vh;
+            height: 40vh;
             position: relative;
             overflow: hidden;
         }
@@ -452,17 +485,17 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            text-align: center;
+            text-align: left;
             width: 100%;
-            padding: 20px;
+            padding: 40px;
             z-index: 2;
             overflow-y: auto; /* Add scroll for smaller screens */
-            max-height: 70%; /* Set maximum height for scrollable container */
+            max-height: 95%; /* Set maximum height for scrollable container */
         }
 
         @media screen and (min-width: 768px) {
             .convenience-content {
-                width: 50%;
+                width: 70%;
             }
         }
 
@@ -472,16 +505,19 @@
         }
 
         .convenience-section h2 {
-            font-size: 48px; /* Increased font size for emphasis */
-            margin-bottom: 20px;
+            font-size: 45px; /* Increased font size for emphasis */
+            margin-bottom: 40px;
             letter-spacing: 4px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Added text shadow for better visibility */
+            margin: 15px;
+            color: #cc0000;
+            text-align: center;
         }
 
         .convenience-section p {
             font-size: 20px; /* Increased font size for emphasis */
             line-height: 1.8;
-            margin: 0;
+            margin: 25px;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Added text shadow for better visibility */
         }
 
@@ -621,15 +657,21 @@
 
         .footer-content {
             display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
+            flex-direction: row; /* Stack the sections vertically */
+            justify-content: space-between; /* Align the sections to the top */
+            align-items: flex-start; /* Align the content to the left */
             padding: 20px;
+            
         }
 
         .footer-section {
-            max-width: 45%;
+            max-width: 100%;
             margin-bottom: 20px;
         }
+
+        .footer-section.contact-info {
+            text-align: left;
+        }   
 
         .contact-info h3,
         .social-media h3 {
@@ -643,10 +685,11 @@
         }
 
         .footer-bottom {
-            text-align: center;
+            text-align: left;
             margin-top: 20px;
             padding-top: 10px;
             border-top: 1px solid #555;
+            margin: 20px;
         }
 
             .footer-bottom p {
@@ -654,7 +697,39 @@
                 opacity: 0.8;
             }
 
+        .footer-section.contact-info {
+            text-align: left;
+            margin-right: 10%;
+        }
 
+        .footer-section.nav-links {
+            text-align: left;
+            margin-right: auto;
+        }
+
+        .footer-section.nav-links ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .footer-section.nav-links h3 {
+            border-bottom: 2px solid #cc0000;
+            padding-bottom: 5px;
+        }
+
+        .footer-section.nav-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section.nav-links a {
+            color: #fff;
+            text-decoration: none;
+            transition: border-bottom 0.3s ease;
+        }
+
+        .footer-section.nav-links a:hover {
+            border-bottom: 1px solid #cc0000;
+        }
         .social-media a {
             display: inline-block;
             margin-right: 15px;
@@ -675,7 +750,7 @@
                 background-color: #222;
                 color: #fff;
                 padding: 20px 20px;
-                text-align: center;
+                text-align: left;
             }
 
             .meet-the-mechanic-section .text-content .paragraph-box {
@@ -689,6 +764,7 @@
                 box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
                 margin-top: 20px;
                 font-size: 20px;
+                text-align: left;
             }
 
             .section-content-container {
@@ -740,6 +816,17 @@
                     border-radius: 5px;
                     transition: background-color 0.3s ease;
                     z-index: 2; /* Ensure the button is above the video */
+                }
+
+                .footer-content {
+                    flex-direction: row; /* Display the sections horizontally on larger screens */
+                    justify-content: space-around;
+                    align-items: flex-start;
+                }
+
+                .footer-section {
+                    max-width: 45%; /* Adjust the width as needed */
+                    margin-bottom: 0; /* Remove the bottom margin on larger screens */
                 }
 
                 #playButton:hover {
@@ -831,19 +918,6 @@
                 <h3>Brake Service</h3>
                 <p>Expert brake inspections, repairs, and replacements for optimal stopping power and safety.</p>
             </div>
-            
-            <div class="service-item" disabled="true">
-                <img src="engine.jpg" alt="Engine Service">
-                <h3>Engine Service</h3>
-                <p>Comprehensive engine diagnostics, repairs, and maintenance to keep your engine running smoothly.</p>
-            </div>
-
-            <div class="service-item" disabled="true">
-                <img src="interior.jpg" alt="Interior Detailing Services">
-                <h3>Interior Detailing Service</h3>
-                <p>Transform your ride from mundane to magnificent with our magic touch, offering bespoke interior detailing services that redefine automotive luxury.</p>
-
-            </div>
 
             <div class="service-item">
                 <img src="dash.jpg" alt="Vehicle Service">
@@ -857,19 +931,13 @@
                 <p>Tire rotations, balancing, and replacements to ensure even wear and improved vehicle handling.</p>
             </div>
 
-            <div class="service-item" disabled="true">
-                <img src="battery.jpg" alt="Battery Services">
-                <h3>Battery Service</h3>
-                <p>Battery replacements and charging system checks for reliable starting power.</p>
-            </div>
-
     </section>
 
 
     <section class="convenience-section">
         <div class="convenience-overlay"></div>
         <div class="convenience-content">
-            <h2>Discover Effortless Auto Maintenance and Service</h2>
+            <h2>Effortless Service</h2>
             <p>
                 Revamp your ride effortlessly with our mobile brake service,
                 bringing expert brake jobs right to your doorstep.
@@ -1001,19 +1069,30 @@
                 <p><a href="mailto:marshallmotorscle@gmail.com">Email: Marshallmotorscle@gmail.com</a></p>
                 <p><a href="tel:+14402566201">+1(440)-256-6201</a></p>
             </div>
+            <div class="footer-section nav-links">
+                <h3>Navigation:</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </div>
         </div>
-
         <div class="footer-bottom">
             <p>&copy; 2024 Marshall Motors. All Rights Reserved.</p>
         </div>
     </footer>
 
     <script>
+
     window.onload = function () {
         // Scroll to the top of the page
         window.scrollTo(0, 0);
     };
-</script>
+
+    </script>
 
 </body>
 
