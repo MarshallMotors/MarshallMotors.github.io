@@ -90,7 +90,22 @@
         }
 
             .marshall {
-                display: none;
+                display: block;
+                position: absolute;
+                background-color: transparent;
+                color: #fff;
+                border: none;
+                cursor: pointer;
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                font-size: 18px;
+                padding-left: 20px;
+                opacity: 0; /* Hide initially */
+                transition: opacity 0.5s ease; /* Smooth transition for opacity change */
+            }
+
+            .marshall.visible {
+                opacity: 1; /* Make visible when the logo is out of view */
             }
 
         @media screen and (max-width: 768px) {
@@ -991,7 +1006,7 @@
 
         function goToHome() {
                 // Access the element with the id 'home'
-                var homeElement = document.getElementById('Home');
+                var homeElement = document.getElementById('home');
                 if (homeElement) {
                     // Use scrollIntoView to smoothly scroll to the 'home' section
                     homeElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
