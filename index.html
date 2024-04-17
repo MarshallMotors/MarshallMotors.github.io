@@ -164,7 +164,6 @@
             text-transform: uppercase;
             letter-spacing: 2px;
             text-shadow: 2px 2px 2px black;
-            z-index: 2; /* Ensure the button is above the header text */
             transition: transform 0.3s ease;
         }
 
@@ -372,6 +371,16 @@
             .service-item {
                 flex: 1 1 calc(100% - 20px); /* Adjust the width for smaller screens */
             }
+
+            .service-item h2 {
+                text-align: center;
+            }   
+
+            .services-section p {
+                text-align: left;
+                margin: 5%;
+            }
+            
         }
 
         @media screen and (min-width: 1920px) {
@@ -457,7 +466,7 @@
                 color: floralwhite;
                 font-size: 16px;
                 line-height: 1.5;
-                margin: ;
+                margin: 0px;
             }
 
 
@@ -465,7 +474,7 @@
             background-image: url('Scroll.jpg');
             background-size: cover;
             background-position: center;
-            height: 40vh;
+            height: 60vh;
             position: relative;
             overflow: hidden;
         }
@@ -496,6 +505,15 @@
         @media screen and (min-width: 768px) {
             .convenience-content {
                 width: 70%;
+            }
+
+            .convenience-section {
+                background-image: url('Scroll.jpg');
+                background-size: cover;
+                background-position: center;
+                height: 20vh;
+                position: relative;
+                overflow: hidden;
             }
         }
 
@@ -1022,7 +1040,7 @@
                 <label for="carModel">Car Model:</label>
                 <input class="contact-input" type="text" id="entry.1065046570" name="entry.1065046570" required>
 
-                <label for="carModel">Car Submodel (If Applicable):</label>
+                <label for="carSubModel">Car Submodel (If Applicable):</label>
                 <input class="contact-input" type="text" id="entry.1166974658" name="entry.1166974658" >
 
                 <label for="name">Name:</label>
