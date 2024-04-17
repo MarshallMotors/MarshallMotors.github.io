@@ -876,6 +876,18 @@
 
             html, body {
                 width: 100%;
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box; /* Include padding and border in the element's width */
+            }
+
+            *, *:before, *:after {
+                box-sizing: inherit; /* Inherit box-sizing to make sure all elements calculate width the same way */
+            }
+
+            /* Ensure elements within sections are also constrained */
+            .section-content-container, .services-container, .footer-content, .contact-form-container {
+                max-width: 100%;
             }
 
     </style>
@@ -901,14 +913,16 @@
     </nav>
 
     <script>
-        window.onscroll = function () {
-                var body = document.body;
-                if (window.pageYOffset > 50) {
-                    body.style.overflowX = 'hidden';
-                } else {
-                    body.style.overflowX = 'visible';
-                }
-            };
+    window.onscroll = function () {
+        var body = document.body;
+        // Optionally lock horizontal scrolling when page is scrolled down
+        if (window.pageYOffset > 50) {
+            body.style.overflowX = 'hidden';
+        } else {
+            body.style.overflowX = 'visible';
+        }
+    };
+
 
         function toggleMenu() {
             var menu = document.querySelector('.main-nav ul');
