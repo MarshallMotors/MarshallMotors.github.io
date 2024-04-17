@@ -910,6 +910,18 @@
             var menu = document.querySelector('.main-nav ul');
             menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
         }
+
+        function closeMenu() {
+            var menu = document.querySelector('.main-nav ul');
+            if (menu.style.display === 'block') {
+                menu.style.display = 'none';
+            }
+        }
+
+        // Add event listeners to nav links
+        document.querySelectorAll('.main-nav a').forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
     </script>
 
 
