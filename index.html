@@ -89,6 +89,10 @@
             border-bottom: 2px solid #cc0000; /* Red underline on hover */
         }
 
+            .marshall {
+                display: none;
+            }
+
         @media screen and (max-width: 768px) {
             .main-nav {
                 padding: 1em 2%;
@@ -142,6 +146,12 @@
                 text-transform: uppercase;
                 letter-spacing: 2px;
                 font-size: 18px;
+                opacity: 0; /* Hide initially */
+                transition: opacity 0.5s ease; /* Smooth transition for opacity change */
+            }
+
+            .marshall.visible {
+                opacity: 1; /* Make visible when the logo is out of view */
             }
         }
 
@@ -502,7 +512,7 @@
             transform: translate(-50%, -50%);
             text-align: left;
             width: 100%;
-            padding: 40px;
+            padding: 20px;
             z-index: 2;
             overflow-y: auto; /* Add scroll for smaller screens */
             max-height: 95%; /* Set maximum height for scrollable container */
@@ -517,7 +527,7 @@
                 background-image: url('Scroll.jpg');
                 background-size: cover;
                 background-position: center;
-                height: 20vh;
+                height: 25vh;
                 position: relative;
                 overflow: hidden;
             }
@@ -541,7 +551,7 @@
         .convenience-section p {
             font-size: 20px; /* Increased font size for emphasis */
             line-height: 1.8;
-            margin: 25px;
+            margin: 15px;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Added text shadow for better visibility */
         }
 
@@ -567,7 +577,7 @@
 
         .contact-section {
             background-color: #333;
-            padding: 0px 20px;
+            padding: 4px 20px;
             text-align: center;
         }
 
@@ -908,23 +918,63 @@
 
 <body>
 
-    <div id="Home" class="logo-background">
+    <div id="home" class="logo-background">
         <div class="logo-section">
             <img src="logo.png" alt="Logo" class="logo">
         </div>
     </div>
 
+    <script>
+        // Function to check if the logo is visible
+        function checkLogoVisibility() {
+            const logo = document.querySelector('.logo');
+            const marshallButton = document.querySelector('.marshall');
+            const logoRect = logo.getBoundingClientRect();
+
+            // Check if the logo is out of view
+            if (logoRect.bottom < 0) {
+                marshallButton.classList.add('visible');
+            } else {
+                marshallButton.classList.remove('visible');
+            }
+        }
+
+        // Listen for scroll events
+        window.addEventListener('scroll', checkLogoVisibility);
+
+        // Initial check on page load
+        window.onload = checkLogoVisibility;
+    </script>
+
     <nav class="main-nav">
         <button class="menu-button" onclick="toggleMenu()">Menu</button>
         <button class="marshall" onclick="goToHome()">Marshall Motors</button>
         <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#home" class="nav-link">Home</a></li>
+            <li><a href="#services" class="nav-link">Services</a></li>
+            <li><a href="#about" class="nav-link">About</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+            <li><a href="#faq" class="nav-link">FAQ</a></li>
         </ul>
     </nav>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Select all navigation links within the main navigation
+            document.querySelectorAll('.main-nav a').forEach(link => {
+                link.addEventListener('click', function (event) {
+                    event.preventDefault(); // Prevent default anchor click behavior
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+
+                    if (targetElement) {
+                        // Smoothly scroll to the element
+                        targetElement.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+        });
+    </script>
 
     <script>
         window.onscroll = function () {
@@ -945,8 +995,6 @@
                     homeElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             }
-
-
 
         function toggleMenu() {
             var menu = document.querySelector('.main-nav ul');
@@ -973,8 +1021,6 @@
         });
     </script>
 
-
-
     <div class="header-image">
         <button class="schedule-button" onclick="scrollToContact()">Schedule an Appointment</button>
         <div class="header-text-container">
@@ -997,7 +1043,6 @@
     <div class="announcement-banner">
         Offering FREE diagnostics. Schedule your appointment now!
     </div>
-
 
     <section id="services" class="services-section">
         <div class="section-header">
@@ -1026,7 +1071,6 @@
             </div>
 
     </section>
-
 
     <section class="convenience-section">
         <div class="convenience-overlay"></div>
@@ -1065,7 +1109,6 @@
             </div>
         </div>
     </section>
-    
 
     <section class="how-it-works-section">
         <h1>HOW IT WORKS</h1>
@@ -1096,7 +1139,7 @@
     </section>
 
     <section id="contact" class="contact-section">
-        <h2>Contact Us</h2>
+        <h2>CONTACT US</h2>
         <div class="contact-form-container">
             <form name="gform" id="gform" enctype="text/plain" action="https://docs.google.com/forms/d/e/1FAIpQLSc2lmLRiL6Mhf7SzWuACjLNEwsIzb-t69PfHV0yM7uhZpOP8A/formResponse?" target="hidden_iframe" onsubmit="submitted=true;">
                 <label for="carYear">Car Year:</label>
@@ -1166,11 +1209,11 @@
             <div class="footer-section nav-links">
                 <h3> Navigation:</h3>
                 <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#services" class="nav-link">Services</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                    <li><a href="#faq" class="nav-link">FAQ</a></li>
                 </ul>
             </div>
         </div>
