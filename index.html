@@ -130,6 +130,19 @@
                 font-size: 18px;
                 padding-right: 20px;
             }
+
+            .marshall {
+                display: block;
+                position: absolute;
+                top: 5px;
+                background-color: transparent;
+                color: #fff;
+                border: none;
+                cursor: pointer;
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                font-size: 18px;
+            }
         }
 
         .header-image {
@@ -903,6 +916,7 @@
 
     <nav class="main-nav">
         <button class="menu-button" onclick="toggleMenu()">Menu</button>
+        <button class="marshall" onclick="goToHome()">Marshall Motors</button>
         <ul>
             <li><a href="#home">Home</a></li>
             <li><a href="#services">Services</a></li>
@@ -913,15 +927,25 @@
     </nav>
 
     <script>
-    window.onscroll = function () {
-        var body = document.body;
-        // Optionally lock horizontal scrolling when page is scrolled down
-        if (window.pageYOffset > 50) {
-            body.style.overflowX = 'hidden';
-        } else {
-            body.style.overflowX = 'visible';
-        }
-    };
+        window.onscroll = function () {
+            var body = document.body;
+            // Optionally lock horizontal scrolling when page is scrolled down
+            if (window.pageYOffset > 50) {
+                body.style.overflowX = 'hidden';
+            } else {
+                body.style.overflowX = 'visible';
+            }
+        };
+
+        function goToHome() {
+                // Access the element with the id 'home'
+                var homeElement = document.getElementById('Home');
+                if (homeElement) {
+                    // Use scrollIntoView to smoothly scroll to the 'home' section
+                    homeElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }
+
 
 
         function toggleMenu() {
