@@ -46,90 +46,86 @@
             margin-right: 10px; /* Adjust the margin as needed */
         }
 
-        .main-nav {
+        .logo-background {
             background-color: #222;
             color: #fff;
             text-align: center;
             padding: 1em 5%;
         }
 
+        .main-nav {
+            position: sticky;
+            top: 0;
+            background-color: #222;
+            z-index: 1000; /* High z-index to ensure it stays on top of other content */
+            width: 100%;
+            text-align: center;
+            padding: 1em 0;
+        }
         .menu-button {
             display: none; /* Hide the menu button on larger displays */
         }
 
-            .main-nav ul {
-                list-style-type: none;
-                margin: 10px;
-                padding: 0;
-            }
+        .main-nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
 
-            .main-nav li {
-                display: inline-block;
-                margin-right: 20px;
-            }
+        .main-nav li {
+            display: inline-block;
+            margin-right: 20px;
+        }
 
-            .main-nav a {
-                text-decoration: none;
-                color: #fff;
-                font-weight: bold;
-                font-size: 16px;
-                text-transform: uppercase;
-                letter-spacing: 1px;
-            }
+        .main-nav a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
 
-                .main-nav a:hover {
-                    border-bottom: 2px solid #cc0000; /* Red underline on hover */
-                }
+        .main-nav a:hover {
+            border-bottom: 2px solid #cc0000; /* Red underline on hover */
+        }
 
         @media screen and (max-width: 768px) {
             .main-nav {
                 padding: 1em 2%;
-                position: relative; /* Add position relative to allow absolute positioning of the menu button */
+                position: sticky; /* Ensure sticky is also applied in mobile view */
             }
 
-                .main-nav ul {
-                    list-style-type: none;
-                    margin: 0;
-                    padding: 0;
-                    display: none; /* Hide the navigation links by default */
-                    position: absolute;
-                    top: 100%; /* Position the menu below the logo */
-                    left: 0;
-                    width: 100%;
-                    background-color: #222; /* Match the background color of the navigation bar */
-                    z-index: 1; /* Ensure the menu appears above other content */
-                }
+            .main-nav ul {
+                display: none; /* Initially hide the menu in mobile view */
+                width: 100%;
+                background-color: #222;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                z-index: 1000;
+            }
 
-                .main-nav li {
-                    display: block;
-                    margin: 10px 0;
-                }
+            .main-nav li {
+                display: block;
+                margin: 10px 0;
+            }
 
-                .main-nav a {
-                    display: block;
-                    padding: 10px 0;
-                    border-bottom: 1px solid #555; /* Add a border between menu items */
-                }
-
-            .logo {
-                margin-bottom: 10px; /* Adjust margin as needed */
+            .main-nav a {
+                display: block;
+                padding: 10px 0;
             }
 
             .menu-button {
                 display: block;
                 position: absolute;
                 top: 10px;
-                right: 10px; /* Adjust the values as needed */
-                padding: 10px 0;
+                right: 10px;
                 background-color: transparent;
                 color: #fff;
                 border: none;
                 cursor: pointer;
-                font-weight: bold;
                 text-transform: uppercase;
                 letter-spacing: 2px;
-                text-shadow: 2px 2px 2px black;
-                transition: background-color 0.3s ease;
             }
         }
 
@@ -137,8 +133,6 @@
         .menu-button:hover {
             background-color: #990000; /* Darker shade on hover */
         }
-
-
 
         .header-image {
             width: 100%;
@@ -882,19 +876,19 @@
                 }
             }
 
-        html, body {
-            max-width: 100%;
-            overflow-x: hidden;
-        }
-
 
     </style>
 </head>
 
 <body>
 
-    <nav id="home" class="main-nav">
-        <img src="logo.png" alt="Logo" class="logo">
+    <div class="logo-background">
+        <div class="logo-section">
+            <img src="logo.png" alt="Logo" class="logo">
+        </div>
+    </div>
+
+    <nav class="main-nav">
         <button class="menu-button" onclick="toggleMenu()">Menu</button>
         <ul>
             <li><a href="#home">Home</a></li>
@@ -906,6 +900,15 @@
     </nav>
 
     <script>
+        window.onscroll = function () {
+                var body = document.body;
+                if (window.pageYOffset > 50) {
+                    body.style.overflowX = 'hidden';
+                } else {
+                    body.style.overflowX = 'visible';
+                }
+            };
+
         function toggleMenu() {
             var menu = document.querySelector('.main-nav ul');
             menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
